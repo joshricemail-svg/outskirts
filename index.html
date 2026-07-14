@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Outskirts Saloon — Everybody's Hometown Bar | Prescott, AZ</title>
+<meta name="description" content="Outskirts Saloon — everybody's hometown bar in Prescott, Arizona. Live music, cold drinks, open late. 444 W Goodwin St." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='10' fill='%231a2c50'/%3E%3Crect x='7' y='7' width='86' height='86' rx='6' fill='none' stroke='%23f4f1e8' stroke-width='2.5'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='62' font-weight='700' text-anchor='middle' fill='%23f4f1e8'%3EO%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,700;6..96,800&family=Libre+Franklin:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#1a2c50;         /* the sign */
+    --navy-deep:#132140;
+    --navy-lift:#233a63;
+    --cream:#f4f1e8;        /* the letters */
+    --cream-dim:#cfd6e4;
+    --brass:#c9a24a;
+    --rust:#a8462f;
+    --slate:#8e9cb8;
+    --line:rgba(244,241,232,.16);
+    --maxw:1160px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--navy);color:var(--cream);
+    font-family:"Libre Franklin",system-ui,sans-serif;
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--brass)}
+  .serif{font-family:"Bodoni Moda",Didot,Georgia,serif}
+
+  /* ---------- nav ---------- */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(19,33,64,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 24px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--cream)}
+  .brand .bmark{width:34px;height:34px;flex:none}
+  .brand .btype{font-family:"Bodoni Moda",Georgia,serif;font-weight:700;font-size:1.22rem;letter-spacing:.04em;line-height:1}
+  nav.links{margin-left:auto;display:flex;gap:4px;align-items:center}
+  nav.links button{background:none;border:0;cursor:pointer;font-family:"Libre Franklin";font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);opacity:.7;padding:8px 12px;transition:opacity .18s,color .18s}
+  nav.links button:hover{opacity:1;color:var(--brass)}
+  nav.links button.active{opacity:1;color:var(--brass)}
+  .call-pill{margin-left:8px;font-weight:700;font-size:.78rem;letter-spacing:.05em;text-decoration:none;color:var(--navy);background:var(--cream);padding:9px 16px;border-radius:2px;white-space:nowrap;transition:background .18s,transform .18s}
+  .call-pill:hover{background:var(--brass);transform:translateY(-1px)}
+  .menu-toggle{display:none}
+
+  /* ---------- open now ---------- */
+  .status{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.9rem}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--slate)}
+  .status.open .dot{background:#79c46d;animation:pulse 2.6s infinite}
+  .status.closed .dot{background:var(--rust)}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(121,196,109,.5)}70%{box-shadow:0 0 0 8px rgba(121,196,109,0)}100%{box-shadow:0 0 0 0 rgba(121,196,109,0)}}
+
+  .view{display:none}
+  .view.active{display:block;animation:fade .45s ease both}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  /* ---------- hero = the painted sign ---------- */
+  .hero{position:relative;padding:9vh 0 8vh;overflow:hidden;
+    background:
+      radial-gradient(110% 80% at 50% -10%, rgba(255,255,255,.07), transparent 60%),
+      linear-gradient(180deg,var(--navy-deep),var(--navy) 60%,var(--navy-deep));
+  }
+  .signboard{
+    position:relative;border:2px solid rgba(244,241,232,.85);border-radius:3px;
+    padding:clamp(26px,5vw,54px) clamp(18px,4vw,44px);
+    background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.12));
+    box-shadow:0 24px 60px rgba(0,0,0,.4), inset 0 0 0 1px rgba(244,241,232,.18);
+    text-align:center;
+  }
+  .signboard:before{content:"";position:absolute;inset:8px;border:1px solid rgba(244,241,232,.22);border-radius:2px;pointer-events:none}
+  .signboard h1{
+    margin:0;font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:700;
+    font-size:clamp(2.6rem,11.5vw,8rem);line-height:.95;letter-spacing:.03em;color:var(--cream);
+    text-shadow:0 2px 0 rgba(0,0,0,.35), 0 14px 40px rgba(0,0,0,.35);
+  }
+  .signboard .tagline{
+    margin:clamp(12px,2vw,20px) auto 0;font-family:"Bodoni Moda",Georgia,serif;font-weight:500;
+    font-size:clamp(.72rem,2.1vw,1.35rem);letter-spacing:.24em;text-transform:uppercase;color:var(--cream);
+    opacity:.95;
+  }
+  .hero .under{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;margin-top:34px}
+  .hero .sub{max-width:52ch;margin:26px auto 0;text-align:center;color:var(--cream-dim);font-weight:300;font-size:clamp(1rem,1.5vw,1.18rem)}
+  .btn{font-weight:700;font-size:.88rem;letter-spacing:.04em;text-decoration:none;cursor:pointer;padding:14px 26px;border-radius:2px;border:1px solid transparent;transition:transform .18s,background .18s,border-color .18s,color .18s;display:inline-block}
+  .btn-primary{background:var(--cream);color:var(--navy)}
+  .btn-primary:hover{background:var(--brass);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--cream);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--brass);color:var(--brass);transform:translateY(-2px)}
+
+  /* ---------- sections ---------- */
+  section.block{padding:86px 0;border-top:1px solid var(--line)}
+  section.block.tight{padding:58px 0}
+  .sec-head{margin-bottom:44px;max-width:62ch}
+  .sec-head h2{margin:12px 0 10px;font-family:"Bodoni Moda",Georgia,serif;font-weight:700;font-size:clamp(2rem,5vw,3.2rem);line-height:1.02;letter-spacing:.01em}
+  .sec-head p{margin:0;color:var(--slate);max-width:54ch}
+
+  .strip{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+  .card{background:linear-gradient(160deg,var(--navy-lift),var(--navy-deep));border:1px solid var(--line);border-radius:4px;padding:32px}
+  .mini-hours{list-style:none;margin:14px 0 0;padding:0}
+  .mini-hours li{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px dashed rgba(244,241,232,.12);font-size:.95rem}
+  .mini-hours li:last-child{border-bottom:0}
+  .mini-hours li.today{color:var(--brass);font-weight:700}
+  .feature-list{list-style:none;margin:20px 0 0;padding:0}
+  .feature-list li{position:relative;padding:12px 0 12px 30px;border-bottom:1px solid var(--line)}
+  .feature-list li:before{content:"";position:absolute;left:0;top:19px;width:12px;height:2px;background:var(--brass)}
+  .feature-list li:last-child{border-bottom:0}
+  .feature-list li b{display:block;font-weight:700}
+  .feature-list li span{color:var(--slate);font-size:.9rem}
+
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  .fact{background:var(--navy);padding:26px 22px}
+  .fact .k{font-family:"Bodoni Moda",Georgia,serif;font-weight:700;font-size:2rem;color:var(--cream);line-height:1}
+  .fact .l{color:var(--slate);font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;margin-top:10px;font-weight:600}
+
+  .embed-frame{border:1px solid var(--line);border-radius:5px;overflow:hidden;background:#fff}
+  .embed-frame iframe{width:100%;min-height:760px;border:0;display:block;background:#fff}
+
+  .placeholder-note{display:inline-flex;align-items:center;gap:10px;background:rgba(168,70,47,.18);border:1px solid rgba(168,70,47,.45);color:#e5a892;font-size:.78rem;font-weight:600;letter-spacing:.04em;padding:8px 14px;border-radius:3px;margin-bottom:32px}
+  .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:44px}
+  .menu-cat h3{font-family:"Bodoni Moda",Georgia,serif;font-weight:700;font-size:1.5rem;color:var(--cream);margin:0;border-bottom:1px solid var(--line);padding-bottom:14px;letter-spacing:.02em}
+  .menu-cat ul{list-style:none;margin:14px 0 0;padding:0}
+  .menu-cat li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px dashed rgba(244,241,232,.1)}
+  .menu-cat li:last-child{border-bottom:0}
+  .menu-cat .item b{font-weight:600}
+  .menu-cat .item span{display:block;color:var(--slate);font-size:.85rem;margin-top:2px}
+  .menu-cat .price{color:var(--brass);font-weight:700;white-space:nowrap}
+
+  .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .full-hours{list-style:none;margin:0;padding:0}
+  .full-hours li{display:flex;justify-content:space-between;gap:16px;padding:14px 2px;border-bottom:1px solid var(--line)}
+  .full-hours li.today{color:var(--brass);font-weight:700}
+  .info-line{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);align-items:flex-start}
+  .info-line:last-child{border-bottom:0}
+  .info-line .ico{color:var(--brass);width:22px;flex:none;text-align:center;font-weight:700}
+  .info-line a{color:var(--brass);text-decoration:none}
+  .info-line a:hover{text-decoration:underline}
+  .info-line .sub{color:var(--slate);font-size:.88rem}
+  .socials{display:flex;gap:12px;margin-top:8px}
+  .socials a{width:34px;height:34px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:.78rem;font-weight:700;text-decoration:none;transition:all .18s}
+  .socials a:hover{border-color:var(--brass);color:var(--brass)}
+
+  footer{border-top:1px solid var(--line);padding:46px 0 40px;background:var(--navy-deep)}
+  .foot-inner{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-end}
+  .foot-brand{font-family:"Bodoni Moda",Georgia,serif;font-weight:700;font-size:1.3rem;letter-spacing:.04em}
+  .foot-tag{font-family:"Bodoni Moda",Georgia,serif;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--slate);margin-top:6px}
+  .foot-meta{color:var(--slate);font-size:.86rem;line-height:1.9}
+  .foot-meta a{color:var(--slate);text-decoration:none}
+  .foot-meta a:hover{color:var(--brass)}
+  .powered{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--slate)}
+  .powered b{color:var(--cream);font-weight:700}
+
+  @media (max-width:820px){
+    nav.links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--navy-deep);border-bottom:1px solid var(--line);padding:8px}
+    nav.links.show{display:flex}
+    nav.links button{width:100%;text-align:left;padding:14px 16px}
+    .call-pill{display:none}
+    .menu-toggle{display:inline-flex;margin-left:auto;background:none;border:1px solid var(--line);color:var(--cream);border-radius:3px;padding:8px 12px;cursor:pointer;font-weight:700;letter-spacing:.1em;font-size:.7rem}
+    .strip,.visit-grid,.menu-grid{grid-template-columns:1fr;gap:32px}
+    .facts{grid-template-columns:1fr}
+    section.block{padding:58px 0}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+  :focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#" data-nav="home">
+      <svg class="bmark" viewBox="0 0 100 100" aria-hidden="true">
+        <rect x="2" y="2" width="96" height="96" rx="8" fill="#1a2c50" stroke="#f4f1e8" stroke-width="3"/>
+        <rect x="9" y="9" width="82" height="82" rx="4" fill="none" stroke="#f4f1e8" stroke-width="1" opacity=".5"/>
+        <text x="50" y="70" font-family="'Bodoni Moda',Georgia,serif" font-size="58" font-weight="700" text-anchor="middle" fill="#f4f1e8">O</text>
+      </svg>
+      <span class="btype">OUTSKIRTS</span>
+    </a>
+    <button class="menu-toggle" aria-label="Menu" onclick="document.getElementById('links').classList.toggle('show')">MENU</button>
+    <nav class="links" id="links" aria-label="Primary">
+      <button data-nav="home" class="active">Home</button>
+      <button data-nav="events">Events</button>
+      <button data-nav="menu">Menu</button>
+      <button data-nav="visit">Visit</button>
+    </nav>
+    <a class="call-pill" href="tel:+19284509877">(928) 450-9877</a>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<div class="view active" id="view-home">
+  <section class="hero">
+    <div class="wrap">
+      <div class="signboard">
+        <h1>OUTSKIRTS</h1>
+        <div class="tagline">Everybody's Hometown Bar</div>
+      </div>
+      <p class="sub">Live music, cold drinks, and a stool with your name on it — one block off Whiskey Row in downtown Prescott.</p>
+      <div class="under">
+        <a class="btn btn-primary" href="#" data-nav="events">See what's on</a>
+        <a class="btn btn-ghost" href="#" data-nav="visit">Hours &amp; directions</a>
+      </div>
+      <div class="under" style="margin-top:26px"><span class="status" id="hero-status"><span class="dot"></span><span class="txt">Checking hours…</span></span></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="strip">
+        <div>
+          <div class="eyebrow">The place</div>
+          <h2 class="serif" style="font-size:clamp(2rem,5vw,3rem);margin:14px 0 16px;font-weight:700">Everybody's welcome</h2>
+          <p style="color:var(--slate);max-width:46ch">A block south of the Courthouse Plaza, Outskirts is the room where locals, regulars, and whoever wandered in off the Row all end up at the same bar. Good music, honest pours, no attitude.</p>
+          <ul class="feature-list">
+            <li><b>Live music</b><span>Local acts and Whiskey Row regulars — every show on our Events page.</span></li>
+            <li><b>Full bar</b><span>Whiskey deep, beer cold, cocktails made right.</span></li>
+            <li><b>Open late</b><span>Till 2 AM Friday &amp; Saturday.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="eyebrow">This week</div>
+          <div class="serif" style="font-size:1.4rem;font-weight:700;margin:10px 0 2px">Hours</div>
+          <ul class="mini-hours" id="mini-hours"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block tight">
+    <div class="wrap">
+      <div class="facts">
+        <div class="fact"><div class="k">2 AM</div><div class="l">Fri &amp; Sat close</div></div>
+        <div class="fact"><div class="k">1 block</div><div class="l">Off Whiskey Row</div></div>
+        <div class="fact"><div class="k">Live</div><div class="l">Music &amp; events</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ EVENTS ============ -->
+<div class="view" id="view-events">
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Live music &amp; events</div>
+        <h2>What's on</h2>
+        <p>Every show, straight from our calendar. Check back often — the lineup moves fast.</p>
+      </div>
+      <div class="embed-frame">
+        <iframe src="https://skprapp.com/embed/venue/outskirts-saloon"
+                style="width:100%;border:0;min-height:760px;" loading="lazy"
+                title="SkpR events calendar"></iframe>
+      </div>
+      <script src="https://skprapp.com/embed.js" async></script>
+    </div>
+  </section>
+</div>
+
+<!-- ============ MENU ============ -->
+<div class="view" id="view-menu">
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">The bar</div>
+        <h2>Drinks &amp; bites</h2>
+        <p>Whiskey-forward, honest pours, and something to soak it up.</p>
+      </div>
+      <div class="placeholder-note">⚑ Sample menu — swap for Outskirts' real items &amp; prices</div>
+      <div class="menu-grid">
+        <div class="menu-cat"><h3>Whiskey</h3><ul>
+          <li><div class="item"><b>House pour</b><span>Well whiskey, neat or rocks</span></div><span class="price">$—</span></li>
+          <li><div class="item"><b>Bourbon flight</b><span>Three one-ounce pours</span></div><span class="price">$—</span></li>
+          <li><div class="item"><b>Top shelf</b><span>Ask the bar</span></div><span class="price">$—</span></li>
+        </ul></div>
+        <div class="menu-cat"><h3>Beer</h3><ul>
+          <li><div class="item"><b>Draft</b><span>Rotating local &amp; domestic taps</span></div><span class="price">$—</span></li>
+          <li><div class="item"><b>Bottles &amp; cans</b><span>Ask what's cold</span></div><span class="price">$—</span></li>
+          <li><div class="item"><b>Bucket of five</b><span>Domestics</span></div><span class="price">$—</span></li>
+        </ul></div>
+        <div class="menu-cat"><h3>Cocktails</h3><ul>
+          <li><div class="item"><b>Old Fashioned</b><span>The way it should be</span></div><span class="price">$—</span></li>
+          <li><div class="item"><b>Ranch water</b><span>Tequila, lime, soda</span></div><span class="price">$—</span></li>
+          <li><div class="item"><b>Margarita</b><span>House or top-shelf</span></div><span class="price">$—</span></li>
+        </ul></div>
+        <div class="menu-cat"><h3>Bar bites</h3><ul>
+          <li><div class="item"><b>Loaded nachos</b><span>Enough to share</span></div><span class="price">$—</span></li>
+          <li><div class="item"><b>Wings</b><span>Choice of sauce</span></div><span class="price">$—</span></li>
+          <li><div class="item"><b>Pretzel &amp; beer cheese</b><span>Warm</span></div><span class="price">$—</span></li>
+        </ul></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ VISIT ============ -->
+<div class="view" id="view-visit">
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Find us</div>
+        <h2>Visit</h2>
+        <p>One block south of the Courthouse Plaza in downtown Prescott. Pull up, come in.</p>
+      </div>
+      <div class="visit-grid">
+        <div>
+          <div class="eyebrow" style="margin-bottom:16px">Hours</div>
+          <ul class="full-hours" id="full-hours"></ul>
+          <div style="margin-top:18px"><span class="status" id="visit-status"><span class="dot"></span><span class="txt">Checking hours…</span></span></div>
+        </div>
+        <div>
+          <div class="eyebrow" style="margin-bottom:16px">Details</div>
+          <div class="info-line"><div class="ico">◆</div><div>
+            <div>444 W Goodwin St</div><div class="sub">Prescott, AZ 86303</div>
+            <a class="btn btn-ghost" style="margin-top:16px" href="https://www.google.com/maps/search/?api=1&query=Outskirts+Saloon+444+W+Goodwin+St+Prescott+AZ" target="_blank" rel="noopener">Open in Maps</a>
+          </div></div>
+          <div class="info-line"><div class="ico">◆</div><div><a href="tel:+19284509877">(928) 450-9877</a><div class="sub">Call the bar</div></div></div>
+          <div class="info-line"><div class="ico">◆</div><div>
+            <div>Follow along</div><div class="sub">Add Outskirts' social links</div>
+            <div class="socials"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">ig</a></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div style="display:flex;align-items:center;gap:20px">
+      <svg width="76" height="76" viewBox="0 0 100 100" style="flex:none" aria-label="Outskirts Saloon">
+        <rect x="2" y="2" width="96" height="96" rx="8" fill="#1a2c50" stroke="#f4f1e8" stroke-width="3"/>
+        <rect x="9" y="9" width="82" height="82" rx="4" fill="none" stroke="#f4f1e8" stroke-width="1" opacity=".5"/>
+        <text x="50" y="70" font-family="'Bodoni Moda',Georgia,serif" font-size="58" font-weight="700" text-anchor="middle" fill="#f4f1e8">O</text>
+      </svg>
+      <div>
+        <div class="foot-brand">OUTSKIRTS</div>
+        <div class="foot-tag">Everybody's Hometown Bar</div>
+        <div class="foot-meta" style="margin-top:8px">444 W Goodwin St · Prescott, AZ 86303<br /><a href="tel:+19284509877">(928) 450-9877</a></div>
+      </div>
+    </div>
+    <div class="foot-meta" style="text-align:right">
+      <div class="powered">Events powered by <b>SkpR</b></div>
+      <div style="margin-top:8px">© <span id="year"></span> Outskirts Saloon</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var views = document.querySelectorAll('.view');
+  function go(name){
+    views.forEach(function(v){ v.classList.toggle('active', v.id === 'view-'+name); });
+    document.querySelectorAll('nav.links button').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-nav') === name); });
+    document.getElementById('links').classList.remove('show');
+    window.scrollTo({top:0,behavior:'auto'});
+  }
+  document.querySelectorAll('[data-nav]').forEach(function(el){
+    el.addEventListener('click', function(e){ e.preventDefault(); go(el.getAttribute('data-nav')); });
+  });
+
+  // 0 Sun .. 6 Sat ; minutes from midnight, >1440 = spills past midnight
+  var HOURS = {
+    0:{label:'Sunday',    open:'11:00 AM', close:'12:00 AM', range:[660,1440]},
+    1:{label:'Monday',    open:'11:00 AM', close:'11:00 PM', range:[660,1380]},
+    2:{label:'Tuesday',   open:'11:00 AM', close:'11:00 PM', range:[660,1380]},
+    3:{label:'Wednesday', open:'8:00 AM',  close:'11:00 PM', range:[480,1380]},
+    4:{label:'Thursday',  open:'8:00 AM',  close:'11:00 PM', range:[480,1380]},
+    5:{label:'Friday',    open:'8:00 AM',  close:'2:00 AM',  range:[480,1560]},
+    6:{label:'Saturday',  open:'11:00 AM', close:'2:00 AM',  range:[660,1560]}
+  };
+  var ORDER = [2,3,4,5,6,0,1];
+  function fmt(mins){
+    mins = ((mins%1440)+1440)%1440;
+    var h=Math.floor(mins/60), m=mins%60, ap=h>=12?'PM':'AM', hh=h%12; if(hh===0)hh=12;
+    return hh + (m? ':'+(m<10?'0'+m:m):'') + ' ' + ap;
+  }
+  function status(){
+    var now=new Date(), day=now.getDay(), cur=now.getHours()*60+now.getMinutes(), t=HOURS[day];
+    if(cur>=t.range[0] && cur<Math.min(t.range[1],1440)) return {open:true,text:'Open now · until '+fmt(t.range[1])};
+    var p=HOURS[(day+6)%7];
+    if(p.range[1]>1440 && cur<(p.range[1]-1440)) return {open:true,text:'Open now · until '+fmt(p.range[1])};
+    if(cur<t.range[0]) return {open:false,text:'Closed · opens '+t.open};
+    var d=(day+1)%7;
+    return {open:false,text:'Closed · opens '+HOURS[d].label+' at '+HOURS[d].open};
+  }
+  function paintStatus(){
+    var s=status();
+    ['hero-status','visit-status'].forEach(function(id){
+      var el=document.getElementById(id); if(!el) return;
+      el.classList.toggle('open',s.open); el.classList.toggle('closed',!s.open);
+      el.querySelector('.txt').textContent=s.text;
+    });
+  }
+  function paintHours(){
+    var today=new Date().getDay(), mini=document.getElementById('mini-hours'), full=document.getElementById('full-hours');
+    ORDER.forEach(function(d){
+      var h=HOURS[d], val=h.open+' – '+h.close;
+      if(mini){var li=document.createElement('li');li.className=d===today?'today':'';li.innerHTML='<span>'+h.label+'</span><span>'+val+'</span>';mini.appendChild(li);}
+      if(full){var l2=document.createElement('li');l2.className=d===today?'today':'';l2.innerHTML='<span>'+h.label+'</span><span>'+val+'</span>';full.appendChild(l2);}
+    });
+  }
+  paintHours(); paintStatus(); setInterval(paintStatus,60000);
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

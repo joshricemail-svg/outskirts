@@ -113,7 +113,7 @@ The domain is already on Cloudflare. Connect the repo as a Pages project with:
 | Framework preset | Next.js (Static HTML Export) — or "None" |
 | Build command | `next build` |
 | Build output directory | `out` |
-| Environment variable | `NODE_VERSION` = `20` (or newer) |
+| Environment variable | `NODE_VERSION` = `22` |
 
 `next.config.js` sets `output: 'export'` and `trailingSlash: true`, so every route is emitted as its
 own `index.html` and served cleanly by Pages. No server, functions, or adapters are involved.

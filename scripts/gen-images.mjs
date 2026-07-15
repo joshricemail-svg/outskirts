@@ -46,26 +46,30 @@ async function toPng(svg, width, height) {
 }
 
 // ---------- Open Graph card ----------
+// Dark "lit sign at night" treatment matching the site: a bright navy board
+// glowing on a near-black field, full name across two lines, brass rule.
+const BRASS = '#d3a94f';
 async function buildOg() {
   const W = 1200;
   const H = 630;
-  const panel = { x: 95, y: 115, w: 1010, h: 400, rx: 6 };
+  const panel = { x: 95, y: 92, w: 1010, h: 446, rx: 6 };
   const cxPanel = panel.x + panel.w / 2;
 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#132140"/>
-      <stop offset="0.6" stop-color="#1a2c50"/>
-      <stop offset="1" stop-color="#132140"/>
+      <stop offset="0" stop-color="#0a1322"/>
+      <stop offset="0.55" stop-color="#101c34"/>
+      <stop offset="1" stop-color="#060c17"/>
     </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0" r="0.9">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.08"/>
-      <stop offset="0.6" stop-color="#ffffff" stop-opacity="0"/>
+    <radialGradient id="glow" cx="0.5" cy="-0.05" r="0.85">
+      <stop offset="0" stop-color="${BRASS}" stop-opacity="0.12"/>
+      <stop offset="0.55" stop-color="${BRASS}" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="panelFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/>
-      <stop offset="1" stop-color="#000000" stop-opacity="0.14"/>
+      <stop offset="0" stop-color="#1e3159"/>
+      <stop offset="0.65" stop-color="#1a2c50"/>
+      <stop offset="1" stop-color="#16264a"/>
     </linearGradient>
   </defs>
   <rect width="${W}" height="${H}" fill="url(#bg)"/>
@@ -73,9 +77,11 @@ async function buildOg() {
   <rect x="${panel.x}" y="${panel.y}" width="${panel.w}" height="${panel.h}" rx="${panel.rx}"
         fill="url(#panelFill)" stroke="${CREAM}" stroke-opacity="0.85" stroke-width="3"/>
   <rect x="${panel.x + 12}" y="${panel.y + 12}" width="${panel.w - 24}" height="${panel.h - 24}" rx="4"
-        fill="none" stroke="${CREAM}" stroke-opacity="0.28" stroke-width="1.5"/>
-  ${centeredText(bodoni700, 'OUTSKIRTS', 172, 6, cxPanel, panel.y + 165)}
-  ${centeredText(bodoni500, "EVERYBODY'S HOMETOWN BAR", 30, 13, cxPanel, panel.y + 320)}
+        fill="none" stroke="${CREAM}" stroke-opacity="0.26" stroke-width="1.5"/>
+  ${centeredText(bodoni700, 'OUTSKIRTS', 150, 5, cxPanel, panel.y + 150)}
+  ${centeredText(bodoni700, 'SALOON', 52, 26, cxPanel, panel.y + 250)}
+  <rect x="${cxPanel - 175}" y="${panel.y + 300}" width="350" height="2" fill="${BRASS}" opacity="0.75"/>
+  ${centeredText(bodoni500, "EVERYBODY'S HOMETOWN BAR", 28, 12, cxPanel, panel.y + 355)}
 </svg>`;
 
   const png = await toPng(svg, W, H);

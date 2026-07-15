@@ -10,15 +10,18 @@
 */
 
 :root {
-  --navy: #1a2c50;        /* the sign */
-  --navy-deep: #132140;
-  --navy-lift: #233a63;
+  /* Darker "lit sign at night" saloon palette. The signboard field stays a
+     true, slightly-brighter navy so it glows against a deep near-black page. */
+  --navy: #101c34;        /* primary page background — deep navy */
+  --navy-deep: #0a1322;   /* nav, footer, deepest panels */
+  --navy-lift: #1e3159;   /* card gradient top / lit sign field */
+  --sign: #1a2c50;        /* the physical sign's navy — used on the signboard */
   --cream: #f4f1e8;       /* the letters */
-  --cream-dim: #cfd6e4;
-  --brass: #c9a24a;       /* sole accent */
-  --rust: #a8462f;
-  --slate: #8e9cb8;
-  --line: rgba(244, 241, 232, 0.16);
+  --cream-dim: #ccd4e2;
+  --brass: #d3a94f;       /* sole accent — nudged brighter to glow on the dark */
+  --rust: #b04a31;
+  --slate: #8191ac;
+  --line: rgba(244, 241, 232, 0.13);
   --maxw: 1160px;
 
   /* Fallbacks; next/font overrides these on <body>. */
@@ -107,9 +110,16 @@ header.nav {
 .brand .btype {
   font-family: var(--font-bodoni);
   font-weight: 700;
-  font-size: 1.22rem;
-  letter-spacing: 0.04em;
+  font-size: 1.18rem;
+  letter-spacing: 0.05em;
   line-height: 1;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.brand .btype-sub {
+  font-weight: 500;
+  color: var(--brass);
+  letter-spacing: 0.09em;
 }
 nav.links {
   margin-left: auto;
@@ -216,16 +226,21 @@ nav.links a[aria-current='page'] {
   padding: 9vh 0 8vh;
   overflow: hidden;
   background:
-    radial-gradient(110% 80% at 50% -10%, rgba(255, 255, 255, 0.07), transparent 60%),
-    linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, var(--navy-deep));
+    radial-gradient(120% 90% at 50% -15%, rgba(211, 169, 79, 0.1), transparent 55%),
+    radial-gradient(100% 70% at 50% 0%, rgba(255, 255, 255, 0.05), transparent 60%),
+    linear-gradient(180deg, var(--navy-deep), var(--navy) 55%, #060c17);
 }
 .signboard {
   position: relative;
   border: 2px solid rgba(244, 241, 232, 0.85);
   border-radius: 3px;
   padding: clamp(26px, 5vw, 54px) clamp(18px, 4vw, 44px);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.12));
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(244, 241, 232, 0.18);
+  background: linear-gradient(180deg, var(--navy-lift), var(--sign) 65%, #16264a);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(211, 169, 79, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 0 0 1px rgba(244, 241, 232, 0.14);
   text-align: center;
 }
 .signboard:before {
@@ -236,8 +251,12 @@ nav.links a[aria-current='page'] {
   border-radius: 2px;
   pointer-events: none;
 }
-.signboard .wordmark {
+.signboard .name {
   margin: 0;
+  display: block;
+}
+.signboard .wordmark {
+  display: block;
   font-family: var(--font-bodoni);
   font-weight: 700;
   font-size: clamp(2.6rem, 11.5vw, 8rem);
@@ -246,12 +265,34 @@ nav.links a[aria-current='page'] {
   color: var(--cream);
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35), 0 14px 40px rgba(0, 0, 0, 0.35);
 }
+.signboard .saloon {
+  display: block;
+  margin: clamp(6px, 1.4vw, 14px) auto 0;
+  font-family: var(--font-bodoni);
+  font-weight: 600;
+  font-size: clamp(1rem, 4.4vw, 2.55rem);
+  letter-spacing: 0.34em;
+  /* trailing indent balances the letter-spacing so the word stays centered */
+  text-indent: 0.34em;
+  text-transform: uppercase;
+  line-height: 1;
+  color: var(--cream);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+.signboard .rule {
+  width: min(58%, 360px);
+  height: 1px;
+  margin: clamp(14px, 2.4vw, 22px) auto clamp(10px, 1.8vw, 16px);
+  background: linear-gradient(90deg, transparent, var(--brass), transparent);
+  opacity: 0.7;
+}
 .signboard .tagline {
   margin: clamp(12px, 2vw, 20px) auto 0;
   font-family: var(--font-bodoni);
   font-weight: 500;
   font-size: clamp(0.72rem, 2.1vw, 1.35rem);
   letter-spacing: 0.24em;
+  text-indent: 0.24em;
   text-transform: uppercase;
   color: var(--cream);
   opacity: 0.95;
@@ -599,7 +640,11 @@ footer.site-footer {
   font-family: var(--font-bodoni);
   font-weight: 700;
   font-size: 1.3rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+}
+.foot-brand-sub {
+  font-weight: 500;
+  color: var(--brass);
 }
 .foot-tag {
   font-family: var(--font-bodoni);
@@ -670,6 +715,10 @@ footer.site-footer {
     letter-spacing: 0.1em;
     font-size: 0.7rem;
     align-items: center;
+  }
+  .brand .btype {
+    font-size: 1.04rem;
+    letter-spacing: 0.04em;
   }
   .strip,
   .visit-grid,

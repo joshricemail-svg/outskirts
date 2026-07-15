@@ -14,18 +14,26 @@ interface SignboardLogoProps {
   /** Element for the wordmark. Use 'h1' for the page's primary heading. */
   titleAs?: 'h1' | 'div';
   wordmark?: string;
+  /** Second line of the name, e.g. "SALOON". */
+  subword?: string;
   tagline?: string;
 }
 
 export function SignboardLogo({
   titleAs = 'div',
   wordmark = 'OUTSKIRTS',
+  subword = 'SALOON',
   tagline = "Everybody's Hometown Bar",
 }: SignboardLogoProps) {
-  const Wordmark = titleAs;
+  const Heading = titleAs;
+  const accessibleName = subword ? `${wordmark} ${subword}` : wordmark;
   return (
     <div className="signboard">
-      <Wordmark className="wordmark">{wordmark}</Wordmark>
+      <Heading className="name" aria-label={accessibleName}>
+        <span className="wordmark">{wordmark}</span>
+        {subword && <span className="saloon">{subword}</span>}
+      </Heading>
+      <div className="rule" aria-hidden="true" />
       <div className="tagline">{tagline}</div>
     </div>
   );

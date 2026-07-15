@@ -9,7 +9,9 @@ export function Footer() {
         <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
           <OTile size={76} decorative />
           <div>
-            <div className="foot-brand">OUTSKIRTS</div>
+            <div className="foot-brand">
+              OUTSKIRTS <span className="foot-brand-sub">SALOON</span>
+            </div>
             <div className="foot-tag">{site.tagline}</div>
             <div className="foot-meta" style={{ marginTop: 8 }}>
               {site.address.street} · {site.address.line2}

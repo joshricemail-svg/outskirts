@@ -26,9 +26,11 @@ export function Nav() {
   return (
     <header className="nav">
       <div className="nav-inner">
-        <Link className="brand" href="/" onClick={() => setOpen(false)}>
+        <Link className="brand" href="/" onClick={() => setOpen(false)} aria-label="Outskirts Saloon — home">
           <OTile size={34} decorative />
-          <span className="btype">OUTSKIRTS</span>
+          <span className="btype">
+            Outskirts <span className="btype-sub">Saloon</span>
+          </span>
         </Link>
 
         <button

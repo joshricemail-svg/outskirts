@@ -3,13 +3,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { OTile } from '@/components/logo/OTile';
 import { site } from '@/config/site';
 
 const LINKS = [
   { href: '/', label: 'Home' },
   { href: '/events', label: 'Events' },
-  { href: '/menu', label: 'Menu' },
+  // Menu is hidden for now — not ready. Re-add when the real menu lands.
   { href: '/visit', label: 'Visit' },
 ];
 
@@ -27,7 +26,6 @@ export function Nav() {
     <header className="nav">
       <div className="nav-inner">
         <Link className="brand" href="/" onClick={() => setOpen(false)} aria-label="Outskirts Saloon — home">
-          <OTile size={34} decorative />
           <span className="btype">
             Outskirts <span className="btype-sub">Saloon</span>
           </span>

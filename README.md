@@ -139,9 +139,11 @@ serves plain files — so those advisories don't apply to what's deployed. The o
 
 These are intentionally fake — flagged in the code and (where visible) in the UI:
 
-- **Menu** (`config/menu.ts`) — sample items with `$—` prices. The rust-colored
-  "Sample menu — swap for real items & prices" note stays visible until you set `isSample = false`.
-  Real prices are **not** invented; swap the whole file when you have the real menu.
+- **Menu** — currently **hidden**. The page lives in `app/_menu/` (a private folder Next doesn't
+  route) and its Menu nav link is removed, so `/menu` isn't reachable. Its content is still in
+  `config/menu.ts` (sample items, `$—` prices — no invented prices). To bring it back: rename
+  `app/_menu` → `app/menu` and re-add the `{ href: '/menu', label: 'Menu' }` entry in
+  `components/Nav.tsx`. It stays a sample until you set `isSample = false` in `config/menu.ts`.
 - **Social links** (`config/site.ts`) — Facebook/Instagram icons point at `#`. Replace `href: '#'`
   with the real profile URLs. The "Add Outskirts' social links" note on `/visit` is a reminder.
 

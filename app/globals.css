@@ -225,12 +225,24 @@ nav.links a[aria-current='page'] {
 /* ---------- hero = the painted sign ---------- */
 .hero {
   position: relative;
-  padding: 9vh 0 8vh;
+  padding: clamp(44px, 8vh, 92px) 0 clamp(40px, 7vh, 80px);
   overflow: hidden;
+  /* Warm dark vignette behind the sign — matches the neon's red glow and the
+     brick, and the image's pure-black corners melt into it seamlessly. */
   background:
-    radial-gradient(120% 90% at 50% -15%, rgba(211, 169, 79, 0.11), transparent 55%),
-    radial-gradient(100% 70% at 50% 0%, rgba(255, 255, 255, 0.03), transparent 60%),
-    linear-gradient(180deg, #0a0b0d, var(--navy) 55%, #050506);
+    radial-gradient(120% 115% at 50% 42%, rgba(122, 28, 12, 0.17), transparent 62%),
+    linear-gradient(180deg, #050506, #0a0708 45%, #050506);
+}
+.hero-logo {
+  margin: 0 auto;
+  text-align: center;
+  line-height: 0;
+}
+.hero-logo img {
+  display: block;
+  width: min(1040px, 94vw);
+  height: auto;
+  margin: 0 auto;
 }
 .signboard {
   position: relative;

@@ -46,47 +46,18 @@ async function toPng(svg, width, height) {
 }
 
 // ---------- Open Graph card ----------
-// Dark "lit sign at night" treatment matching the site: a bright navy board
-// glowing on a near-black field, full name across two lines, brass rule.
-const BRASS = '#d3a94f';
+// The neon sign is the brand logo, so the social card is that image, letterboxed
+// onto a 1200x630 near-black field (the sign's own black edges hide the seam).
 async function buildOg() {
   const W = 1200;
   const H = 630;
-  const panel = { x: 95, y: 92, w: 1010, h: 446, rx: 6 };
-  const cxPanel = panel.x + panel.w / 2;
-
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0a0b0d"/>
-      <stop offset="0.5" stop-color="#0b0d11"/>
-      <stop offset="1" stop-color="#050506"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="-0.05" r="0.85">
-      <stop offset="0" stop-color="${BRASS}" stop-opacity="0.14"/>
-      <stop offset="0.55" stop-color="${BRASS}" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="panelFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#274370"/>
-      <stop offset="0.6" stop-color="#1a2c50"/>
-      <stop offset="1" stop-color="#14233c"/>
-    </linearGradient>
-  </defs>
-  <rect width="${W}" height="${H}" fill="url(#bg)"/>
-  <rect width="${W}" height="${H}" fill="url(#glow)"/>
-  <rect x="${panel.x}" y="${panel.y}" width="${panel.w}" height="${panel.h}" rx="${panel.rx}"
-        fill="url(#panelFill)" stroke="${CREAM}" stroke-opacity="0.85" stroke-width="3"/>
-  <rect x="${panel.x + 12}" y="${panel.y + 12}" width="${panel.w - 24}" height="${panel.h - 24}" rx="4"
-        fill="none" stroke="${CREAM}" stroke-opacity="0.26" stroke-width="1.5"/>
-  ${centeredText(bodoni700, 'OUTSKIRTS', 150, 5, cxPanel, panel.y + 150)}
-  ${centeredText(bodoni700, 'SALOON', 52, 26, cxPanel, panel.y + 250)}
-  <rect x="${cxPanel - 175}" y="${panel.y + 300}" width="350" height="2" fill="${BRASS}" opacity="0.75"/>
-  ${centeredText(bodoni500, "EVERYBODY'S HOMETOWN BAR", 28, 12, cxPanel, panel.y + 355)}
-</svg>`;
-
-  const png = await toPng(svg, W, H);
-  writeFileSync(join(root, 'public/og.png'), png);
-  console.log(`Wrote public/og.png (${png.length} bytes)`);
+  // JPEG: it's a photograph, so this is ~10x smaller than PNG for the same look.
+  const jpg = await sharp(join(root, 'public/hero-neon.jpg'))
+    .resize(W, H, { fit: 'contain', background: { r: 5, g: 5, b: 6 } })
+    .jpeg({ quality: 86, progressive: true, mozjpeg: true })
+    .toBuffer();
+  writeFileSync(join(root, 'public/og.jpg'), jpg);
+  console.log(`Wrote public/og.jpg (${Math.round(jpg.length / 1024)}KB)`);
 }
 
 // ---------- O tile (shared shape) ----------

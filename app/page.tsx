@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { SignboardLogo } from '@/components/logo/SignboardLogo';
 import { OpenStatus } from '@/components/OpenStatus';
 import { HoursList } from '@/components/HoursList';
 
@@ -9,7 +8,22 @@ export default function HomePage() {
       {/* ---------- the painted sign ---------- */}
       <section className="hero">
         <div className="wrap">
-          <SignboardLogo titleAs="h1" />
+          <h1 className="hero-logo">
+            <picture>
+              <source
+                type="image/webp"
+                srcSet="/hero-neon-900.webp 900w, /hero-neon.webp 1600w"
+                sizes="(max-width: 640px) 94vw, min(1040px, 92vw)"
+              />
+              <img
+                src="/hero-neon.jpg"
+                width={1600}
+                height={799}
+                alt="Outskirts Saloon — Everybody's Hometown Bar"
+                fetchPriority="high"
+              />
+            </picture>
+          </h1>
           <p className="sub">
             Live music, cold drinks, and a stool with your name on it — one block off Whiskey Row in
             downtown Prescott.

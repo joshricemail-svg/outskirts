@@ -48,7 +48,7 @@ export const metadata: Metadata = {
       "Everybody's hometown bar in downtown Prescott, Arizona. Live music, cold drinks, open late.",
     images: [
       {
-        url: '/og.png',
+        url: '/og.jpg',
         width: 1200,
         height: 630,
         alt: "Outskirts Saloon — Everybody's Hometown Bar, Prescott AZ",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: "Outskirts Saloon — Everybody's Hometown Bar",
     description:
       "Everybody's hometown bar in downtown Prescott, Arizona. Live music, cold drinks, open late.",
-    images: ['/og.png'],
+    images: ['/og.jpg'],
   },
 };
 

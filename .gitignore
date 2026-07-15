@@ -1,0 +1,28 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# production build artifacts served statically live in /out (ignored above)
+
+# misc
+.DS_Store
+*.pem
+Thumbs.db
+
+# local editor/agent settings (machine-specific)
+.claude/settings.local.json
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env
+.env*.local
+
+# typescript
+next-env.d.ts
+*.tsbuildinfo

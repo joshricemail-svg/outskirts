@@ -10,18 +10,20 @@
 */
 
 :root {
-  /* Darker "lit sign at night" saloon palette. The signboard field stays a
-     true, slightly-brighter navy so it glows against a deep near-black page. */
-  --navy: #101c34;        /* primary page background — deep navy */
-  --navy-deep: #0a1322;   /* nav, footer, deepest panels */
-  --navy-lift: #1e3159;   /* card gradient top / lit sign field */
-  --sign: #1a2c50;        /* the physical sign's navy — used on the signboard */
+  /* Dark bar palette: near-black page with warm brass light. Only the
+     signboard keeps the navy of the physical sign, so the lit board glows
+     against the black rather than the whole site reading blue. */
+  --navy: #0b0d11;        /* primary page background — near black */
+  --navy-deep: #060708;   /* nav, footer, deepest panels — black */
+  --navy-lift: #16191f;   /* card gradient top — dark charcoal */
+  --sign: #1a2c50;        /* the physical sign's navy (the board) */
+  --sign-lift: #274370;   /* lit highlight at the top of the board */
   --cream: #f4f1e8;       /* the letters */
-  --cream-dim: #ccd4e2;
-  --brass: #d3a94f;       /* sole accent — nudged brighter to glow on the dark */
+  --cream-dim: #cbd0da;
+  --brass: #d3a94f;       /* sole accent — warm amber light on the black */
   --rust: #b04a31;
-  --slate: #8191ac;
-  --line: rgba(244, 241, 232, 0.13);
+  --slate: #8b90a0;       /* neutral caption gray (less blue) */
+  --line: rgba(244, 241, 232, 0.1);
   --maxw: 1160px;
 
   /* Fallbacks; next/font overrides these on <body>. */
@@ -87,7 +89,7 @@ header.nav {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(19, 33, 64, 0.9);
+  background: rgba(8, 9, 11, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -226,20 +228,20 @@ nav.links a[aria-current='page'] {
   padding: 9vh 0 8vh;
   overflow: hidden;
   background:
-    radial-gradient(120% 90% at 50% -15%, rgba(211, 169, 79, 0.1), transparent 55%),
-    radial-gradient(100% 70% at 50% 0%, rgba(255, 255, 255, 0.05), transparent 60%),
-    linear-gradient(180deg, var(--navy-deep), var(--navy) 55%, #060c17);
+    radial-gradient(120% 90% at 50% -15%, rgba(211, 169, 79, 0.11), transparent 55%),
+    radial-gradient(100% 70% at 50% 0%, rgba(255, 255, 255, 0.03), transparent 60%),
+    linear-gradient(180deg, #0a0b0d, var(--navy) 55%, #050506);
 }
 .signboard {
   position: relative;
   border: 2px solid rgba(244, 241, 232, 0.85);
   border-radius: 3px;
   padding: clamp(26px, 5vw, 54px) clamp(18px, 4vw, 44px);
-  background: linear-gradient(180deg, var(--navy-lift), var(--sign) 65%, #16264a);
+  background: linear-gradient(180deg, var(--sign-lift), var(--sign) 60%, #14233c);
   box-shadow:
-    0 30px 70px rgba(0, 0, 0, 0.55),
-    0 0 40px rgba(211, 169, 79, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 34px 80px rgba(0, 0, 0, 0.7),
+    0 0 46px rgba(211, 169, 79, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09),
     inset 0 0 0 1px rgba(244, 241, 232, 0.14);
   text-align: center;
 }

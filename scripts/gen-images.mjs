@@ -58,18 +58,18 @@ async function buildOg() {
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#0a1322"/>
-      <stop offset="0.55" stop-color="#101c34"/>
-      <stop offset="1" stop-color="#060c17"/>
+      <stop offset="0" stop-color="#0a0b0d"/>
+      <stop offset="0.5" stop-color="#0b0d11"/>
+      <stop offset="1" stop-color="#050506"/>
     </linearGradient>
     <radialGradient id="glow" cx="0.5" cy="-0.05" r="0.85">
-      <stop offset="0" stop-color="${BRASS}" stop-opacity="0.12"/>
+      <stop offset="0" stop-color="${BRASS}" stop-opacity="0.14"/>
       <stop offset="0.55" stop-color="${BRASS}" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="panelFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#1e3159"/>
-      <stop offset="0.65" stop-color="#1a2c50"/>
-      <stop offset="1" stop-color="#16264a"/>
+      <stop offset="0" stop-color="#274370"/>
+      <stop offset="0.6" stop-color="#1a2c50"/>
+      <stop offset="1" stop-color="#14233c"/>
     </linearGradient>
   </defs>
   <rect width="${W}" height="${H}" fill="url(#bg)"/>

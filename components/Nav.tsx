@@ -7,7 +7,8 @@ import { site } from '@/config/site';
 
 const LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/events', label: 'Events' },
+  // URL stays /events; label includes specials since they show on the calendar too.
+  { href: '/events', label: 'Events / Specials' },
   // Menu is hidden for now — not ready. Re-add when the real menu lands.
   { href: '/visit', label: 'Visit' },
 ];

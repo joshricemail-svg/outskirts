@@ -3,9 +3,9 @@ import Script from 'next/script';
 import { site } from '@/config/site';
 
 export const metadata: Metadata = {
-  title: "What's On — Live Music & Events",
+  title: 'Events & Specials',
   description:
-    "Live music and events at Outskirts Saloon in Prescott, AZ. Every show, straight from our calendar.",
+    "Live music, events, and specials at Outskirts Saloon in Prescott, AZ. Every show and special, straight from our calendar.",
   alternates: { canonical: '/events' },
 };
 
@@ -15,9 +15,12 @@ export default function EventsPage() {
       <section className="block">
         <div className="wrap">
           <div className="sec-head">
-            <div className="eyebrow">Live music &amp; events</div>
+            <div className="eyebrow">Live music, events &amp; specials</div>
             <h1>What&#39;s on</h1>
-            <p>Every show, straight from our calendar. Check back often — the lineup moves fast.</p>
+            <p>
+              Every show and special, straight from our calendar. Check back often — the lineup
+              moves fast.
+            </p>
           </div>
 
           {/*
